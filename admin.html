@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>لوحة إضافة محتوى | TOPWEB4ALL</title>
+<style>
+:root{--teal:#00F2FE;--bg:#050D17;--card:#0B1826;--border:rgba(0,242,254,.2);--txt:#fff;--mut:#8E9FB5}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif}
+body{background:var(--bg);color:var(--txt);max-width:900px;margin:auto;padding:26px 18px 60px}
+h1{font-size:1.6rem;margin-bottom:6px}h1 span{color:var(--teal)}p{color:var(--mut);line-height:1.9;margin-bottom:14px}
+.tabs{display:flex;gap:8px;margin:18px 0}.tab{border:1px solid var(--border);background:var(--card);color:var(--txt);padding:10px 22px;border-radius:999px;cursor:pointer;font-weight:700;font-family:inherit}.tab.active{background:var(--teal);color:#04222a;border-color:var(--teal)}
+label{display:block;font-size:.85rem;font-weight:700;margin:12px 0 5px}input,textarea,select{width:100%;background:var(--card);border:1px solid var(--border);border-radius:10px;color:var(--txt);padding:11px 14px;font-size:.9rem;font-family:inherit}textarea{min-height:90px;line-height:1.8}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.btn{background:linear-gradient(135deg,#00F2FE,#00A896);border:none;color:#04222a;font-weight:800;padding:13px 26px;border-radius:12px;cursor:pointer;font-size:1rem;font-family:inherit;margin-top:16px}
+pre{background:#020a12;border:1px solid var(--border);border-radius:12px;padding:16px;overflow:auto;direction:ltr;text-align:left;font-size:.78rem;line-height:1.6;margin-top:16px;white-space:pre-wrap;color:#bdf3ff}
+.note{background:rgba(0,242,254,.07);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin:14px 0;line-height:2;font-size:.9rem}
+@media(max-width:640px){.row,.row3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<h1>➕ لوحة إضافة <span>محتوى</span></h1>
+<p>افتحي الملف ده من جهازك (دبل كليك) — املي الحقول — انسخي الكود — الصقيه في ملف البيانات — ارفعي على GitHub. بدون أي سيرفر.</p>
+<div class="note">📁 المقالات ← <b>data/articles.js</b> &nbsp;|&nbsp; 📁 المشاريع ← <b>data/projects.js</b><br>الصقي الكود الجديد <b>قبل</b> سطر القالب اللي آخره <b>/* ── انسخي القالب</b> وحطي قبله فاصلة <b>,</b></div>
+<div class="tabs"><button class="tab active" id="tabA" onclick="mode='article';tabUI()">📝 مقال جديد</button><button class="tab" id="tabP" onclick="mode='project';tabUI()">🚀 مشروع جديد</button></div>
+
+<div id="formA">
+<div class="row"><div><label>slug (انجليزي بدون مسافات)</label><input id="a_slug" value="my-new-article"></div><div><label>التصنيف cat</label><select id="a_cat"><option>brand</option><option selected>web</option><option>email</option><option>auto</option><option>qa</option><option>launch</option></select></div></div>
+<div><label>صورة الغلاف cover</label><input id="a_cover" value="images/my-article.jpg"></div>
+<div class="row"><div><label>العنوان EN</label><input id="a_te" value="My article title"></div><div><label>العنوان AR</label><input id="a_ta" value="عنوان المقال بالعربية"></div></div>
+<div class="row"><div><label>التاريخ EN</label><input id="a_de" value="Dec 2026 • 5 min read"></div><div><label>التاريخ AR</label><input id="a_da" value="ديسمبر 2026 • 5 دقائق قراءة"></div></div>
+<div class="row"><div><label>ملخص EN</label><textarea id="a_xe">Short summary...</textarea></div><div><label>ملخص AR</label><textarea id="a_xa">ملخص قصير...</textarea></div></div>
+<div class="row"><div><label>الفقرات EN (كل فقرة في سطر)</label><textarea id="a_be">Paragraph 1...&#10;Paragraph 2...&#10;Paragraph 3...</textarea></div><div><label>الفقرات AR</label><textarea id="a_ba">فقرة 1...&#10;فقرة 2...&#10;فقرة 3...</textarea></div></div>
+<div class="row"><div><label>اقتباس EN</label><input id="a_qe" value="&quot;Quote...&quot;"></div><div><label>اقتباس AR</label><input id="a_qa" value="&quot;اقتباس...&quot;"></div></div>
+<div class="row"><div><label>نقاط EN (كل نقطة في سطر)</label><textarea id="a_pe">Point 1&#10;Point 2&#10;Point 3</textarea></div><div><label>نقاط AR</label><textarea id="a_pa">نقطة 1&#10;نقطة 2&#10;نقطة 3</textarea></div></div>
+</div>
+
+<div id="formP" style="display:none">
+<div class="row"><div><label>slug</label><input id="p_slug" value="my-new-project"></div><div><label>التصنيفات (افصلي بمسافة)</label><input id="p_cats" value="web launch"></div></div>
+<div><label>صورة الغلاف</label><input id="p_cover" value="images/my-project.jpg"></div>
+<div class="row3"><div><label>صورة 1</label><input id="p_g1" value="images/my-project-1.jpg"></div><div><label>صورة 2</label><input id="p_g2" value="images/my-project-2.jpg"></div><div><label>صورة 3</label><input id="p_g3" value="images/my-project-3.jpg"></div></div>
+<div class="row"><div><label>عنوان EN</label><input id="p_te" value="My project title"></div><div><label>عنوان AR</label><input id="p_ta" value="عنوان المشروع"></div></div>
+<div class="row"><div><label>ملخص EN</label><textarea id="p_xe">One-line summary...</textarea></div><div><label>ملخص AR</label><textarea id="p_xa">ملخص سطر واحد...</textarea></div></div>
+<div class="row3"><div><label>عميل EN</label><input id="p_ce" value="Client — Cairo"></div><div><label>عميل AR</label><input id="p_ca" value="العميل — القاهرة"></div><div><label>السنة</label><input id="p_y" value="2026"></div></div>
+<div class="row"><div><label>مدة EN</label><input id="p_tie" value="4 weeks"></div><div><label>مدة AR</label><input id="p_tia" value="4 أسابيع"></div></div>
+<div class="row"><div><label>نطاق EN</label><input id="p_se" value="Web + Launch"></div><div><label>نطاق AR</label><input id="p_sa" value="موقع + إطلاق"></div></div>
+<div><label>التقنيات (كل واحدة في سطر)</label><textarea id="p_stack">Brand Identity&#10;Static Site&#10;Cloudflare</textarea></div>
+<div><label>إحصائيات (سطر لكل واحدة: قيمة | EN | AR)</label><textarea id="p_stats">+50% | Conversion | التحويل&#10;0.8s | Load time | زمن التحميل&#10;100% | Inbox | الإنبوكس</textarea></div>
+<div class="row"><div><label>نظرة عامة EN</label><textarea id="p_ove">Overview...</textarea></div><div><label>نظرة عامة AR</label><textarea id="p_ova">نظرة عامة...</textarea></div></div>
+<div class="row"><div><label>تحدي EN</label><textarea id="p_che">Challenge...</textarea></div><div><label>تحدي AR</label><textarea id="p_cha">التحدي...</textarea></div></div>
+<div class="row"><div><label>رأي عميل EN</label><textarea id="p_teste">"Quote..." — Client</textarea></div><div><label>رأي عميل AR</label><textarea id="p_testa">"اقتباس..." — العميل</textarea></div></div>
+</div>
+
+<button class="btn" onclick="gen()">⚙️ توليد الكود — اضغطي هنا</button>
+<pre id="out">// الكود هيظهر هنا…</pre>
+<button class="btn" onclick="copyOut()">📋 نسخ الكود</button>
+
+<script>
+let mode='article';
+function tabUI(){document.getElementById('tabA').classList.toggle('active',mode==='article');document.getElementById('tabP').classList.toggle('active',mode==='project');document.getElementById('formA').style.display=mode==='article'?'block':'none';document.getElementById('formP').style.display=mode==='project'?'block':'none';}
+const v=id=>document.getElementById(id).value.trim();
+const lines=id=>v(id).split('\n').map(s=>s.trim()).filter(Boolean);
+const J=s=>JSON.stringify(s);
+function gen(){let code='';
+if(mode==='article'){const be=lines('a_be').map(J).join(', '),ba=lines('a_ba').map(J).join(', '),pe=lines('a_pe').map(J).join(', '),pa=lines('a_pa').map(J).join(', ');
+code=`  ,\n  {\n    slug: ${J(v('a_slug'))},\n    cat: ${J(v('a_cat'))},\n    cover: ${J(v('a_cover'))},\n    date_en: ${J(v('a_de'))},\n    date_ar: ${J(v('a_da'))},\n    title_en: ${J(v('a_te'))},\n    title_ar: ${J(v('a_ta'))},\n    excerpt_en: ${J(v('a_xe'))},\n    excerpt_ar: ${J(v('a_xa'))},\n    body_en: [${be}],\n    body_ar: [${ba}],\n    quote_en: ${J(v('a_qe'))},\n    quote_ar: ${J(v('a_qa'))},\n    points_en: [${pe}],\n    points_ar: [${pa}]\n  }`;}
+else{const stack=lines('p_stack').map(J).join(', ');const stats=lines('p_stats').map(l=>{const[a,b,c]=l.split('|').map(s=>s.trim());return `{ v: ${J(a)}, l_en: ${J(b)}, l_ar: ${J(c)} }`}).join(', ');
+code=`  ,\n  {\n    slug: ${J(v('p_slug'))},\n    cats: ${J(v('p_cats').split(/\s+/))},\n    cover: ${J(v('p_cover'))},\n    gallery: [${J(v('p_g1'))}, ${J(v('p_g2'))}, ${J(v('p_g3'))}],\n    title_en: ${J(v('p_te'))},\n    title_ar: ${J(v('p_ta'))},\n    excerpt_en: ${J(v('p_xe'))},\n    excerpt_ar: ${J(v('p_xa'))},\n    client_en: ${J(v('p_ce'))}, client_ar: ${J(v('p_ca'))},\n    timeline_en: ${J(v('p_tie'))}, timeline_ar: ${J(v('p_tia'))},\n    scope_en: ${J(v('p_se'))}, scope_ar: ${J(v('p_sa'))},\n    year: ${J(v('p_y'))},\n    stack: [${stack}],\n    stats: [${stats}],\n    overview_en: ${J(v('p_ove'))},\n    overview_ar: ${J(v('p_ova'))},\n    challenge_en: ${J(v('p_che'))},\n    challenge_ar: ${J(v('p_cha'))},\n    testi_en: ${J(v('p_teste'))},\n    testi_ar: ${J(v('p_testa'))}\n  }`;}
+document.getElementById('out').textContent=code;}
+function copyOut(){navigator.clipboard.writeText(document.getElementById('out').textContent).then(()=>alert('اتنسخ ✅ — الصقيه في ملف البيانات'));}
+tabUI();
+</script>
+</body>
+</html>

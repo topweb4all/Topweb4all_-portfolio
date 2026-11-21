@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الصفحة غير موجودة | TOPWEB4ALL</title>
+<meta name="robots" content="noindex, follow">
+<meta name="description" content="الصفحة التي تبحث عنها غير موجودة — تصفح أعمالنا ومقالاتنا أو تواصل معنا.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#050D17">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Space+Grotesk:wght@600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/chrome.css">
+<style>
+:root{--teal:#00F2FE;--teal-deep:#00A896;--bg:#050D17;--card:rgba(11,24,38,.78);--border:rgba(0,242,254,.16);--border-h:rgba(0,242,254,.55);--txt:#fff;--mut:#8E9FB5;--badge:rgba(0,242,254,.08);--shadow:0 14px 40px rgba(0,0,0,.45)}
+[data-theme="light"]{--bg:#EDF4F6;--card:#fff;--border:rgba(2,128,144,.28);--border-h:#028090;--txt:#0A1B29;--mut:#3D5468;--badge:rgba(2,128,144,.12);--shadow:0 12px 32px rgba(10,60,75,.14);--teal:#028090}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo','Plus Jakarta Sans',sans-serif}
+h1,h2{font-family:'Cairo','Space Grotesk',sans-serif}
+body{background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column}
+html[dir="ltr"] *{font-family:'Plus Jakarta Sans',sans-serif}
+html[dir="ltr"] h1,html[dir="ltr"] h2{font-family:'Space Grotesk',sans-serif}
+main{flex:1;max-width:900px;margin:auto;padding:70px 22px;text-align:center;width:100%}
+.code{font-size:clamp(4.5rem,16vw,8rem);font-weight:800;line-height:1;background:linear-gradient(135deg,var(--teal),var(--teal-deep));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-2px}
+h1{font-size:clamp(1.3rem,4vw,2rem);margin:10px 0 12px}
+p{color:var(--mut);line-height:2;max-width:560px;margin:0 auto 26px}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{border:1px solid var(--border);background:var(--card);color:var(--txt);padding:12px 24px;border-radius:999px;font-weight:700;text-decoration:none;font-family:inherit;display:inline-flex;align-items:center;gap:8px}
+.btn:hover{border-color:var(--border-h)}
+.btn-primary{background:linear-gradient(135deg,var(--teal),var(--teal-deep));color:#04222a;border:none}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-top:38px}
+.cards a{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;text-decoration:none;color:var(--txt);box-shadow:var(--shadow)}
+.cards a:hover{border-color:var(--border-h)}
+.cards small{display:block;color:var(--mut);font-size:.78rem;margin-top:6px}
+</style>
+</head>
+<body>
+<div id="tw4a-chrome-header"></div>
+<main id="tw4a-main" tabindex="-1">
+<div class="code">404</div>
+<h1 id="t1">الصفحة غير موجودة</h1>
+<p id="t2">الرابط الذي فتحته غير موجود أو تم نقله. جرّب من القائمة أو ابدأ من أحد الأقسام السريعة.</p>
+<div class="actions">
+<a class="btn btn-primary" href="Topweb4all.html">الرئيسية ←</a>
+<a class="btn" href="projects.html">المشاريع</a>
+<a class="btn" href="articles.html">المقالات</a>
+</div>
+<div class="cards">
+<a href="Topweb4all.html#services">الخدمات<small>براند، مواقع، إيميلات، أتمتة، جودة، إطلاق</small></a>
+<a href="Topweb4all.html#pricing">الأسعار<small>باقات ثابتة وشفافة</small></a>
+<a href="Topweb4all.html#about">عن المؤسسة<small>من نحن ومنهجية العمل</small></a>
+<a href="Topweb4all.html#contact">اتصل بنا<small>رد خلال 24 ساعة عمل</small></a>
+</div>
+</main>
+<div id="tw4a-chrome-footer"></div>
+<script src="assets/chrome.js"></script>
+<script>
+var L = localStorage.getItem('tw4a-lang') || 'ar';
+document.documentElement.lang = L; document.documentElement.dir = L === 'ar' ? 'rtl' : 'ltr';
+document.documentElement.setAttribute('data-theme', localStorage.getItem('tw4a-theme') || 'dark');
+TW4A_CHROME.init({ active: '' });
+if (L === 'en') {
+  document.getElementById('t1').textContent = 'Page not found';
+  document.getElementById('t2').textContent = 'The link you opened does not exist or has moved. Try the menu or start from a quick section below.';
+  document.title = 'Page not found | TOPWEB4ALL';
+  var a = document.querySelectorAll('.actions .btn');
+  a[0].textContent = '← Home'; a[1].textContent = 'Projects'; a[2].textContent = 'Articles';
+}
+</script>
+</body>
+</html>
