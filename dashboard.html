@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>لوحة الرسائل | TOPWEB4ALL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#F6AC4F;--teal-deep:#C3673D;--bg:#050D17;--card:#0B1826;--card2:#0E2033;--border:rgba(246,172,79,.2);--border-hover:rgba(246,172,79,.55);--txt:#fff;--mut:#8E9FB5;--ok:#38EF7D;--warn:#FFC531;--danger:#ff6b6b;
+}
+[data-theme="light"]{--bg:#F5F0E8;--card:#fff;--card2:#F0E9DD;--border:rgba(184,115,26,.28);--border-hover:#B8731A;--txt:#0A1B29;--mut:#3D5468;--teal:#B8731A;--teal-deep:#9A4F2A;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo','Plus Jakarta Sans',sans-serif}
+body{background:var(--bg);color:var(--txt);min-height:100vh}
+.wrap{max-width:1280px;margin:auto;padding:22px 20px 60px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.15rem}
+.brand .box{width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,var(--teal),var(--teal-deep));display:flex;align-items:center;justify-content:center;color:#050D17;font-weight:900}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{border:1px solid var(--border);background:var(--card);color:var(--txt);padding:9px 16px;border-radius:10px;cursor:pointer;font-weight:700;font-family:inherit;font-size:.88rem;display:inline-flex;align-items:center;gap:6px;transition:.2s}
+.btn:hover{border-color:var(--teal);color:var(--teal)}
+.btn.primary{background:linear-gradient(135deg,var(--teal),var(--teal-deep));color:#050D17;border:none}
+.btn.danger{border-color:var(--danger);color:var(--danger)}
+.btn.danger:hover{background:var(--danger);color:#fff}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:20px}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.stat .label{color:var(--mut);font-size:.8rem;font-weight:600;margin-bottom:6px}
+.stat .val{font-size:1.9rem;font-weight:800;font-family:'Space Grotesk',sans-serif}
+.stat .val.ok{color:var(--ok)} .stat .val.warn{color:var(--warn)}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+.search{flex:1;min-width:220px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--txt);font-family:inherit;font-size:.9rem}
+.search:focus{border-color:var(--teal);outline:none}
+select.filter{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--txt);font-family:inherit;font-size:.88rem}
+.table-wrap{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:auto;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+table{width:100%;border-collapse:collapse;min-width:820px}
+th,td{padding:12px 14px;text-align:right;border-bottom:1px solid var(--border);vertical-align:top;font-size:.88rem}
+th{background:var(--card2);color:var(--mut);font-weight:700;position:sticky;top:0}
+tr.unread{background:rgba(246,172,79,.05)}
+tr:hover{background:rgba(246,172,79,.08)}
+.badge{display:inline-block;padding:3px 9px;border-radius:999px;font-size:.72rem;font-weight:700}
+.badge.svc{background:rgba(246,172,79,.12);color:var(--teal);border:1px solid var(--border)}
+.badge.read{background:rgba(56,239,125,.12);color:var(--ok)}
+.badge.unread{background:rgba(255,197,49,.15);color:var(--warn)}
+.msg{max-width:340px;white-space:pre-wrap;word-break:break-word;line-height:1.6;color:var(--mut)}
+.meta{font-size:.75rem;color:var(--mut)}
+.row-actions{display:flex;gap:6px;flex-wrap:wrap}
+.iconbtn{background:transparent;border:1px solid var(--border);color:var(--mut);padding:6px 9px;border-radius:8px;cursor:pointer;font-size:.78rem}
+.iconbtn:hover{border-color:var(--teal);color:var(--teal)}
+.iconbtn.del:hover{border-color:var(--danger);color:var(--danger)}
+.empty{text-align:center;padding:50px 20px;color:var(--mut)}
+.login{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:100}
+.loginbox{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:32px;width:min(420px,92vw);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.loginbox h2{margin-bottom:6px;font-size:1.4rem}
+.loginbox p{color:var(--mut);margin-bottom:18px;font-size:.9rem}
+.loginbox input{width:100%;background:var(--card2);border:1px solid var(--border);border-radius:10px;color:var(--txt);padding:12px 14px;font-size:1rem;margin-bottom:12px;font-family:inherit}
+.loginbox input:focus{border-color:var(--teal);outline:none}
+.loginbox .err{color:var(--danger);font-size:.85rem;margin-bottom:8px;display:none}
+.toast{position:fixed;bottom:22px;left:22px;background:var(--card);border:1px solid var(--teal);color:var(--txt);padding:12px 18px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.3);transform:translateY(120px);opacity:0;transition:.3s;z-index:200}
+.toast.show{transform:translateY(0);opacity:1}
+@media(max-width:720px){th,td{padding:9px 10px;font-size:.82rem}.msg{max-width:220px}}
+</style>
+</head>
+<body>
+<div class="login" id="login">
+  <div class="loginbox">
+    <h2>🔐 لوحة <span style="color:var(--teal)">الرسائل</span></h2>
+    <p>TOPWEB4ALL — دخول المشرف فقط</p>
+    <div class="err" id="loginErr">كلمة المرور غير صحيحة</div>
+    <input type="password" id="loginPass" placeholder="كلمة المرور" autofocus>
+    <button class="btn primary" style="width:100%;justify-content:center" onclick="doLogin()">دخول</button>
+    <p style="margin-top:14px;font-size:.78rem;color:var(--mut)">الافتراضي: <code>topweb4all</code> — غيّرها في كود الصفحة (const DASH_PASS)</p>
+  </div>
+</div>
+
+<div class="wrap" id="app" style="display:none">
+  <div class="topbar">
+    <div class="brand"><div class="box">TW</div> لوحة الرسائل <span style="color:var(--mut);font-weight:500;font-size:.85rem">• TOPWEB4ALL</span></div>
+    <div class="actions">
+      <button class="btn" onclick="syncSheet()">🔄 مزامنة Sheet</button>
+      <button class="btn" onclick="exportCSV()">⬇️ تصدير CSV</button>
+      <button class="btn danger" onclick="clearAll()">🗑️ مسح الكل</button>
+      <button class="btn" onclick="logout()">خروج</button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="label">إجمالي الرسائل</div><div class="val" id="sTotal">0</div></div>
+    <div class="stat"><div class="label">غير مقروءة</div><div class="val warn" id="sUnread">0</div></div>
+    <div class="stat"><div class="label">اليوم</div><div class="val ok" id="sToday">0</div></div>
+    <div class="stat"><div class="label">هذا الأسبوع</div><div class="val" id="sWeek">0</div></div>
+  </div>
+
+  <div class="toolbar">
+    <input class="search" id="search" placeholder="🔍 بحث بالاسم، الإيميل، النص..." oninput="render()">
+    <select class="filter" id="fService" onchange="render()">
+      <option value="">كل الخدمات</option>
+      <option value="brand">Brand from Scratch</option>
+      <option value="web">Web Design & Dev</option>
+      <option value="email">Corporate Emails</option>
+      <option value="automation">Workflow Automation</option>
+      <option value="qa">QA & Testing</option>
+      <option value="launch">Project Launch</option>
+    </select>
+    <select class="filter" id="fStatus" onchange="render()">
+      <option value="">كل الحالات</option>
+      <option value="unread">غير مقروء</option>
+      <option value="read">مقروء</option>
+    </select>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>الحالة</th><th>التاريخ</th><th>الاسم</th><th>الإيميل</th><th>الخدمة</th><th>الرسالة</th><th>إجراءات</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <div class="empty" id="empty" style="display:none">📭 لا توجد رسائل بعد. الرسائل المرسلة من نموذج Contact ستظهر هنا.</div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const DASH_PASS = 'topweb4all'; // غيّر كلمة المرور هنا
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzeA_0A3uqMFeVl904D2Z7gFsqTerZ7wT9XNlQYv4TagwVaeCPesDm4755wWi3oylk/exec'; // ضع رابط Google Apps Script (JSON) هنا لمزامنة Sheet
+
+function doLogin(){
+  const p = document.getElementById('loginPass').value;
+  if (p === DASH_PASS){
+    sessionStorage.setItem('tw4a-dash','1');
+    document.getElementById('login').style.display='none';
+    document.getElementById('app').style.display='block';
+    render();
+  } else {
+    document.getElementById('loginErr').style.display='block';
+  }
+}
+document.getElementById('loginPass').addEventListener('keydown', e=>{ if(e.key==='Enter') doLogin(); });
+if (sessionStorage.getItem('tw4a-dash')==='1'){ document.getElementById('login').style.display='none'; document.getElementById('app').style.display='block'; render(); }
+
+function logout(){ sessionStorage.removeItem('tw4a-dash'); location.reload(); }
+
+function getMsgs(){ try { return JSON.parse(localStorage.getItem('tw4a-messages')||'[]'); } catch(e){ return []; } }
+function setMsgs(list){ localStorage.setItem('tw4a-messages', JSON.stringify(list)); }
+
+const SVC_LABEL = {brand:'Brand from Scratch',web:'Web Design & Dev',email:'Corporate Emails',automation:'Workflow Automation',qa:'QA & Testing',launch:'Project Launch'};
+
+function render(){
+  const list = getMsgs();
+  const q = (document.getElementById('search').value||'').toLowerCase();
+  const fs = document.getElementById('fService').value;
+  const fst = document.getElementById('fStatus').value;
+  let filtered = list.filter(m=>{
+    if (fs && m.service !== fs) return false;
+    if (fst==='unread' && m.read) return false;
+    if (fst==='read' && !m.read) return false;
+    if (q){
+      const hay = (m.name+' '+m.email+' '+m.service+' '+m.message+' '+(SVC_LABEL[m.service]||'')).toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+  const tbody = document.getElementById('tbody');
+  tbody.innerHTML = filtered.map(m=>{
+    const d = new Date(m.date);
+    const dateStr = d.toLocaleString('ar-IQ',{year:'numeric',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});
+    return `<tr class="${m.read?'':'unread'}">
+      <td><span class="badge ${m.read?'read':'unread'}">${m.read?'مقروء':'جديد'}</span></td>
+      <td class="meta">${dateStr}</td>
+      <td><strong>${esc(m.name||'—')}</strong></td>
+      <td>${m.email?`<a href="mailto:${esc(m.email)}" style="color:var(--teal)">${esc(m.email)}</a>`:'—'}</td>
+      <td><span class="badge svc">${SVC_LABEL[m.service]||m.service||'—'}</span></td>
+      <td class="msg">${esc(m.message||'—')}</td>
+      <td class="row-actions">
+        <button class="iconbtn" onclick="toggleRead('${m.id}')">${m.read?' ○ ':'✓'}</button>
+        <button class="iconbtn del" onclick="delMsg('${m.id}')">🗑</button>
+      </td>
+    </tr>`;
+  }).join('');
+  document.getElementById('empty').style.display = filtered.length? 'none':'block';
+
+  // stats
+  const now = new Date();
+  const todayStart = new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  const weekStart = new Date(todayStart); weekStart.setDate(weekStart.getDate()-7);
+  document.getElementById('sTotal').textContent = list.length;
+  document.getElementById('sUnread').textContent = list.filter(m=>!m.read).length;
+  document.getElementById('sToday').textContent = list.filter(m=>new Date(m.date)>=todayStart).length;
+  document.getElementById('sWeek').textContent = list.filter(m=>new Date(m.date)>=weekStart).length;
+}
+
+function esc(s){ return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+function toggleRead(id){
+  const list=getMsgs();
+  const m=list.find(x=>x.id===id);
+  if(m){ m.read=!m.read; setMsgs(list); render(); }
+}
+function delMsg(id){
+  if(!confirm('حذف هذه الرسالة؟')) return;
+  setMsgs(getMsgs().filter(x=>x.id!==id));
+  render(); toast('تم الحذف');
+}
+
+function clearAll(){
+  if(!confirm('مسح جميع الرسائل؟ لا يمكن التراجع.')) return;
+  localStorage.removeItem('tw4a-messages');
+  render(); toast('تم المسح');
+}
+
+function exportCSV(){
+  const list=getMsgs();
+  if(!list.length){ toast('لا توجد رسائل'); return; }
+  const header=['Date','Name','Email','Service','Message','Read'];
+  const rows=list.map(m=>[m.date,m.name,m.email,m.service,m.message,m.read?'Yes':'No'].map(v=>`"${String(v||'').replace(/"/g,'""')}"`).join(','));
+  const csv=header.join(',')+'\n'+rows.join('\n');
+  const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a'); a.href=url; a.download='tw4a-messages.csv'; a.click();
+  URL.revokeObjectURL(url);
+}
+
+async function syncSheet(){
+  const url = (SHEET_URL || prompt('أدخل رابط Google Apps Script (JSON):','')).trim();
+  if(!url) return;
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    if (!Array.isArray(data)){ throw new Error('Invalid data'); }
+    // merge by id/date
+    const existing = getMsgs();
+    const keys = new Set(existing.map(m=>m.date+'|'+m.email));
+    let added=0;
+    data.forEach(d=>{
+      const k = d.date+'|'+d.email;
+      if (!keys.has(k)){
+        existing.unshift({
+          id: d.id || (Date.now().toString(36)+Math.random().toString(36).slice(2,6)),
+          name: d.name||d.Name||'',
+          email: d.email||d.Email||'',
+          service: d.service||d.Service||'',
+          message: d.message||d.Message||d.details||'',
+          date: d.date||d.Date||new Date().toISOString(),
+          read: false
+        });
+        keys.add(k); added++;
+      }
+    });
+    setMsgs(existing);
+    render();
+    toast('تمت المزامنة — أضيفت '+added+' رسالة');
+  } catch(err){
+    console.error(err);
+    toast('فشل المزامنة: '+err.message);
+  }
+}
+
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+// theme
+const savedTheme = localStorage.getItem('tw4a-theme')||'dark';
+document.documentElement.setAttribute('data-theme', savedTheme);
+</script>
+</body>
+</html>
