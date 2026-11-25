@@ -109,7 +109,7 @@ window.TW4A_CHROME = (function () {
             '<a href="Topweb4all.html#services" data-tw4a="nav.services">' + t(L, 'nav.services') + '</a>' +
             '<a href="projects.html" data-tw4a="nav.work">' + t(L, 'nav.work') + '</a>' +
             '<a href="Topweb4all.html#pricing" data-tw4a="nav.pricing">' + t(L, 'nav.pricing') + '</a>' +
-            '<a href="Topweb4all.html#about" data-tw4a="nav.about">' + t(L, 'nav.about') + '</a>' +
+            '<a href="https://topweb4all.github.io/Topweb4all_-portfolio/" data-tw4a="nav.about">' + t(L, 'nav.about') + '</a>' +
             '<a href="Topweb4all.html#faq" data-tw4a="nav.faq">' + t(L, 'nav.faq') + '</a>' +
             '<a href="articles.html" data-tw4a="nav.blog">' + t(L, 'nav.blog') + '</a>' +
             '<a href="Topweb4all.html#contact" data-tw4a="nav.contact">' + t(L, 'nav.contact') + '</a>' +
@@ -130,7 +130,7 @@ window.TW4A_CHROME = (function () {
                 '<a href="Topweb4all.html#pricing" data-tw4a="ft.price">' + t(L, 'ft.price') + '</a>' +
                 '<a href="Topweb4all.html#portfolio" data-tw4a="ft.how">' + t(L, 'ft.how') + '</a>' +
             '</div></div><div><h4 data-tw4a="ft.trust">' + t(L, 'ft.trust') + '</h4><div class="links">' +
-                '<a href="Topweb4all.html#about" data-tw4a="ft.about">' + t(L, 'ft.about') + '</a>' +
+                '<a href="https://topweb4all.github.io/Topweb4all_-portfolio/" data-tw4a="ft.about">' + t(L, 'ft.about') + '</a>' +
                 '<a href="Topweb4all.html#faq" data-tw4a="ft.faq">' + t(L, 'ft.faq') + '</a>' +
                 '<a href="articles.html" data-tw4a="ft.blog">' + t(L, 'ft.blog') + '</a>' +
                 '<a href="Topweb4all.html#contact" data-tw4a="ft.contact">' + t(L, 'ft.contact') + '</a>' +
