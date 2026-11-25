@@ -2,23 +2,28 @@
    Shared by articles.html, article.html, projects.html, project.html.
    Class names are tw4a-prefixed so they never clash with page styles. */
 :root, [data-theme="dark"] {
-    --c-teal: #00F2FE; --c-deep: #00A896;
+    --c-teal: #F6AC4F; --c-deep: #C3673D;
     --c-bg: rgba(5, 13, 23, 0.94); --c-card: rgba(11, 24, 38, 0.78);
-    --c-border: rgba(0, 242, 254, 0.16); --c-border-h: rgba(0, 242, 254, 0.55);
-    --c-txt: #FFFFFF; --c-mut: #8E9FB5; --c-badge: rgba(0, 242, 254, 0.08);
-    --c-glow: rgba(0, 242, 254, 0.45);
+    --c-border: rgba(246, 172, 79, 0.18); --c-border-h: rgba(246, 172, 79, 0.55);
+    --c-txt: #FFFFFF; --c-mut: #8E9FB5; --c-badge: rgba(246, 172, 79, 0.08);
+    --c-glow: rgba(246, 172, 79, 0.45); --c-on-accent: #050D17;
 }
 [data-theme="light"] {
-    --c-teal: #028090; --c-deep: #00707F;
+    --c-teal: #B8731A; --c-deep: #9A4F2A;
     --c-bg: rgba(255, 255, 255, 0.96); --c-card: #FFFFFF;
-    --c-border: rgba(2, 128, 144, 0.28); --c-border-h: #028090;
-    --c-txt: #0A1B29; --c-mut: #3D5468; --c-badge: rgba(2, 128, 144, 0.12);
-    --c-glow: rgba(2, 128, 144, 0.28);
+    --c-border: rgba(184, 115, 26, 0.28); --c-border-h: #B8731A;
+    --c-txt: #0A1B29; --c-mut: #3D5468; --c-badge: rgba(184, 115, 26, 0.12);
+    --c-glow: rgba(184, 115, 26, 0.28); --c-on-accent: #FFFFFF;
 }
 .tw4a-header, .tw4a-drawer, .tw4a-footer { font-family: 'Plus Jakarta Sans', sans-serif; }
 .tw4a-header h1, .tw4a-header h2, .tw4a-header h3, .tw4a-logo-text { font-family: 'Space Grotesk', sans-serif; }
 [dir="rtl"] .tw4a-header, [dir="rtl"] .tw4a-drawer, [dir="rtl"] .tw4a-footer { font-family: 'Cairo', 'Plus Jakarta Sans', sans-serif; }
 [dir="rtl"] .tw4a-logo-text { font-family: 'Cairo', 'Space Grotesk', sans-serif; }
+
+/* base links */
+a { color: var(--c-teal); }
+a:hover { color: var(--c-deep); }
+a:visited { color: var(--c-teal); }
 
 /* ---------- header ---------- */
 .tw4a-header {
@@ -33,7 +38,7 @@
 .tw4a-logo-box {
     width: 40px; height: 40px; border-radius: 10px;
     background: linear-gradient(135deg, var(--c-teal), var(--c-deep));
-    display: flex; align-items: center; justify-content: center; color: #050D17;
+    display: flex; align-items: center; justify-content: center; color: var(--c-on-accent);
     box-shadow: 0 0 16px var(--c-glow); flex: none;
 }
 .tw4a-logo-text { font-size: 1.35rem; font-weight: 700; }
@@ -71,7 +76,7 @@ nav.tw4a-nav a.tw4a-link:hover, nav.tw4a-nav a.tw4a-link.active { color: var(--c
 .tw4a-btn {
     padding: 0.72rem 1.5rem; border-radius: 8px; font-size: 0.92rem; font-weight: 600;
     cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
-    background: linear-gradient(135deg, var(--c-teal), var(--c-deep)); color: #050D17; border: none;
+    background: linear-gradient(135deg, var(--c-teal), var(--c-deep)); color: var(--c-on-accent); border: none;
     box-shadow: 0 4px 15px var(--c-glow); white-space: nowrap;
 }
 .tw4a-btn:hover { transform: translateY(-2px); }
@@ -95,7 +100,7 @@ nav.tw4a-nav a.tw4a-link:hover, nav.tw4a-nav a.tw4a-link.active { color: var(--c
 .tw4a-cols { display: flex; gap: 48px; flex-wrap: wrap; }
 .tw4a-cols h4 { margin-bottom: 12px; font-size: 0.95rem; color: var(--c-txt); }
 .tw4a-cols div.links { display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem; color: var(--c-mut); }
-.tw4a-cols a { color: var(--c-mut); text-decoration: none; }
+.tw4a-cols a, .tw4a-cols a:visited { color: var(--c-mut); text-decoration: none; }
 .tw4a-cols a:hover { color: var(--c-teal); }
 .tw4a-socials { display: flex; gap: 12px; flex-wrap: wrap; }
 .tw4a-socials a {
@@ -128,7 +133,7 @@ nav.tw4a-nav a.tw4a-link:hover, nav.tw4a-nav a.tw4a-link.active { color: var(--c
 /* ---------- Accessibility (a11y) ---------- */
 .tw4a-skip {
     position: absolute; inset-inline-start: 12px; top: -60px;
-    background: var(--c-teal); color: #04222a; font-weight: 800;
+    background: var(--c-teal); color: var(--c-on-accent); font-weight: 800;
     padding: 10px 18px; border-radius: 0 0 10px 10px; z-index: 2000;
     text-decoration: none; transition: top 0.2s ease;
 }

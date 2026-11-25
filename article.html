@@ -4,7 +4,6 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="اقرأ مقالات وأدلة TOPWEB4ALL العملية في البراند والمواقع والإيميلات والأتمتة والجودة.">
 <link rel="canonical" href="https://topweb4all.dev/article.html">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -21,13 +20,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Space+Grotesk:wght@600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/chrome.css">
 <style>
-:root{--teal:#00F2FE;--teal-deep:#00A896;--bg:#050D17;--card:rgba(11,24,38,.78);--header:rgba(5,13,23,.94);--border:rgba(0,242,254,.16);--border-h:rgba(0,242,254,.55);--txt:#fff;--mut:#8E9FB5;--badge:rgba(0,242,254,.08);--shadow:0 14px 40px rgba(0,0,0,.45)}
-[data-theme="light"]{--bg:#EDF4F6;--card:#fff;--header:rgba(255,255,255,.96);--border:rgba(2,128,144,.28);--border-h:#028090;--txt:#0A1B29;--mut:#3D5468;--badge:rgba(2,128,144,.12);--shadow:0 12px 32px rgba(10,60,75,.14);--teal:#028090}
+:root{--teal:#F6AC4F;--teal-deep:#C3673D;--bg:#050D17;--card:rgba(11,24,38,.78);--header:rgba(5,13,23,.94);--border:rgba(246,172,79,.18);--border-h:rgba(246,172,79,.55);--txt:#fff;--mut:#8E9FB5;--badge:rgba(246,172,79,.08);--shadow:0 14px 40px rgba(0,0,0,.45);--on-accent:#050D17}
+[data-theme="light"]{--bg:#EDF4F6;--card:#fff;--header:rgba(255,255,255,.96);--border:rgba(184,115,26,.28);--border-h:#B8731A;--txt:#0A1B29;--mut:#3D5468;--badge:rgba(184,115,26,.12);--shadow:0 12px 32px rgba(10,60,75,.14);--teal:#B8731A;--on-accent:#FFFFFF}
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo','Plus Jakarta Sans',sans-serif}h1,h2,h3{font-family:'Cairo','Space Grotesk',sans-serif}
 body{background:var(--bg);color:var(--txt)}html[dir="ltr"] *{font-family:'Plus Jakarta Sans',sans-serif}html[dir="ltr"] h1,html[dir="ltr"] h2,html[dir="ltr"] h3{font-family:'Space Grotesk',sans-serif}
 .wrap{max-width:1000px;margin:auto;padding:0 22px 60px}
 .crumb{margin:22px 0 12px;font-size:.85rem;color:var(--mut)}.crumb a{color:var(--teal);text-decoration:none}
-.heroimg{border-radius:20px;overflow:hidden;border:1px solid var(--border)}.heroimg img{width:100%;height:min(420px,52vw);object-fit:cover;display:block}
+.heroimg{border-radius:20px;overflow:hidden;border:1px solid var(--border);position:relative;min-height:min(420px,52vw);height:min(420px,52vw);background:#050D17;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:24px;text-align:center}.heroimg-logo{position:absolute;inset:0;margin:auto;width:40%;max-width:220px;opacity:.18;pointer-events:none;z-index:0;object-fit:contain}.heroimg-site{position:relative;z-index:2;font-size:.75rem;font-weight:800;letter-spacing:.2em;color:#FFFFFF;opacity:.85}.heroimg-title{position:relative;z-index:2;font-size:clamp(1.3rem,3vw,2rem);font-weight:800;color:#FFFFFF;line-height:1.35;text-shadow:0 2px 12px rgba(0,0,0,.5);max-width:100%}.heroimg-domain{position:relative;z-index:2;font-size:.78rem;color:#FFFFFF;opacity:.75}.heroimg::before,.heroimg::after{content:'';position:absolute;pointer-events:none;z-index:1}.heroimg::before{bottom:0;inset-inline-end:0;width:90px;height:90px;background:#F6AC4F;clip-path:polygon(100% 0,0 100%,100% 100%);opacity:.3}.heroimg::after{top:10px;inset-inline-start:10px;width:60px;height:60px;border:2px solid #C3673D;opacity:.35;transform:rotate(45deg)}
 .body{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:clamp(20px,4vw,42px);margin-top:-44px;position:relative;box-shadow:var(--shadow)}
 .meta{display:flex;gap:8px;font-size:.78rem;color:var(--mut);flex-wrap:wrap}.cat{background:var(--badge);color:var(--teal);border:1px solid var(--border);padding:4px 12px;border-radius:999px;font-weight:800}
 .body h1{font-size:clamp(1.35rem,3.4vw,2.1rem);line-height:1.6;margin:12px 0 6px}.lede{color:var(--mut);font-size:1rem;line-height:2;border-inline-start:3px solid var(--teal);padding-inline-start:14px;margin:14px 0 20px}
@@ -35,8 +34,8 @@ body{background:var(--bg);color:var(--txt)}html[dir="ltr"] *{font-family:'Plus J
 .quote{background:var(--badge);border:1px dashed var(--border-h);border-radius:14px;padding:18px;margin:20px 0;font-weight:700;line-height:1.9}
 .points{list-style:none;display:flex;flex-direction:column;gap:10px}.points li{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:12px 16px;line-height:1.8}
 .authorbox{display:flex;gap:12px;align-items:center;background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:14px 16px;margin-top:24px}.authorbox img{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--teal)}
-.rel{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:14px}.rel .card{background:var(--bg);border:1px solid var(--border);border-radius:14px;overflow:hidden}.rel img{width:100%;height:140px;object-fit:cover}.rel div.b{padding:14px}.rel a{color:var(--teal);font-weight:800;font-size:.85rem;text-decoration:none}
-.cta-box{background:linear-gradient(135deg,rgba(0,242,254,.12),rgba(0,168,150,.08));border:1px solid var(--border-h);border-radius:16px;padding:22px;text-align:center;margin-top:26px;line-height:2}
+.rel{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:14px}.rel .card{background:var(--bg);border:1px solid var(--border);border-radius:14px;overflow:hidden}.rel-cover{width:100%;height:140px;position:relative;overflow:hidden;background:#050D17;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:12px;text-align:center}.rel-cover-logo{position:absolute;inset:0;margin:auto;width:46%;max-width:120px;opacity:.18;pointer-events:none;z-index:0;object-fit:contain}.rel-cover-site{position:relative;z-index:2;font-size:.62rem;font-weight:800;letter-spacing:.18em;color:#FFFFFF;opacity:.85}.rel-cover-title{position:relative;z-index:2;font-size:.85rem;font-weight:800;color:#FFFFFF;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:100%;text-shadow:0 2px 6px rgba(0,0,0,.4)}.rel-cover-domain{position:relative;z-index:2;font-size:.65rem;color:#FFFFFF;opacity:.75}.rel-cover::before,.rel-cover::after{content:'';position:absolute;pointer-events:none;z-index:1}.rel-cover::before{bottom:0;inset-inline-end:0;width:44px;height:44px;background:#F6AC4F;clip-path:polygon(100% 0,0 100%,100% 100%);opacity:.3}.rel-cover::after{top:6px;inset-inline-start:6px;width:28px;height:28px;border:2px solid #C3673D;opacity:.35;transform:rotate(45deg)}.rel-cover-title{font-size:.88rem;font-weight:800;color:var(--txt);text-shadow:0 2px 8px rgba(0,0,0,.5);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.rel div.b{padding:14px}.rel a{color:var(--teal);font-weight:800;font-size:.85rem;text-decoration:none}
+.cta-box{background:linear-gradient(135deg,rgba(246,172,79,.12),rgba(195,103,61,.08));border:1px solid var(--border-h);border-radius:16px;padding:22px;text-align:center;margin-top:26px;line-height:2}
 .cta-box .btn{margin-top:10px}
 </style>
 </head>
@@ -44,7 +43,7 @@ body{background:var(--bg);color:var(--txt)}html[dir="ltr"] *{font-family:'Plus J
 <div id="tw4a-chrome-header"></div>
 <main id="tw4a-main" tabindex="-1" class="wrap">
 <nav class="crumb" aria-label="Breadcrumb"><a href="Topweb4all.html" data-i18n="bcHome">الرئيسية</a> / <a href="articles.html" id="crumbBlog">المدونة</a> / <span id="crumbNow" aria-current="page">…</span></nav>
-<div class="heroimg"><img id="cover" src="" alt="" width="1200" height="630" decoding="async"></div>
+<div class="heroimg"><img class="heroimg-logo" src="images/logo.png" alt="" aria-hidden="true"><span class="heroimg-site">TOPWEB4ALL</span><span class="heroimg-title" id="coverTitle"></span><span class="heroimg-domain">topweb4all.dev</span></div>
 <div class="body"><div class="meta" id="meta"></div><h1 id="title"></h1><p class="lede" id="lede"></p><div id="content"></div><div class="quote" id="quote"></div>
 <h2 id="ptsH">✅ أهم النقاط العملية</h2><ul class="points" id="pts"></ul>
 <div class="authorbox"><img src="founder-omnia.jpg" alt=""><div><b id="auN"></b><br><small style="color:var(--mut)" id="auS"></small></div></div>
@@ -63,7 +62,6 @@ const a=(window.TW4A_ARTICLES||[]).find(x=>x.slug===id)||(window.TW4A_ARTICLES||
 function render(){document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';if(!a){document.getElementById('title').textContent=lang==='ar'?'المقال غير موجود':'Article not found';return}
 var T=(lang==='ar'?a.title_ar:a.title_en), X=(lang==='ar'?a.excerpt_ar:a.excerpt_en);
 document.getElementById('docTitle').textContent=T+' | TOPWEB4ALL';
-document.getElementById('cover').alt=T;
 function setMeta(sel,val,attr){var el=document.querySelector(sel);if(el)el.setAttribute(attr||'content',val)}
 setMeta('meta[name="description"]',X);setMeta('meta[property="og:title"]',T);setMeta('meta[property="og:description"]',X);
 setMeta('meta[name="twitter:title"]',T);setMeta('meta[name="twitter:description"]',X);
@@ -72,7 +70,7 @@ setMeta('link[rel="canonical"]',location.origin+location.pathname+'?id='+a.slug,
 setMeta('meta[property="og:url"]',location.origin+location.pathname+'?id='+a.slug);
 setMeta('meta[property="og:type"]','article');
 var ld=document.getElementById('ldjson'); if(ld){ld.textContent=JSON.stringify({'@context':'https://schema.org','@type':'BlogPosting',headline:T,description:X,image:[location.origin+location.pathname.replace(/[^/]*$/,'')+a.cover],inLanguage:lang,author:{'@type':'Person',name:lang==='ar'?'أمنية أحمد':'Omnia Ahmed',url:'https://www.linkedin.com/in/omniabdm/'},publisher:{'@type':'Organization',name:'TOPWEB4ALL',logo:{'@type':'ImageObject',url:location.origin+location.pathname.replace(/[^/]*$/,'')+'favicon-32x32.png'}},mainEntityOfPage:location.origin+location.pathname+'?id='+a.slug})}
-document.getElementById('cover').src=a.cover;document.getElementById('meta').innerHTML=`<span class="cat">${CATL[lang][a.cat]}</span><span>${lang==='ar'?a.date_ar:a.date_en}</span>`;
+document.getElementById('coverTitle').textContent=T;document.getElementById('meta').innerHTML=`<span class="cat">${CATL[lang][a.cat]}</span><span>${lang==='ar'?a.date_ar:a.date_en}</span>`;
 document.getElementById('title').textContent=lang==='ar'?a.title_ar:a.title_en;document.getElementById('lede').textContent=lang==='ar'?a.excerpt_ar:a.excerpt_en;
 document.getElementById('content').innerHTML=(lang==='ar'?a.body_ar:a.body_en).map(p=>`<p class="p">${p}</p>`).join('');
 document.getElementById('quote').textContent=lang==='ar'?a.quote_ar:a.quote_en;
@@ -85,7 +83,7 @@ document.getElementById('ctaT').textContent=lang==='ar'?'عايزة تنفذي �
 document.getElementById('ctaS').textContent=lang==='ar'?'احجزي مكالمة مجانية — نرد خلال 24 ساعة عمل':'Book a free call — reply within 24 business hours';
 document.getElementById('ctaB').textContent=lang==='ar'?'ابدأي مشروعك ←':'Start your project →';document.getElementById('crumbBlog').textContent=lang==='ar'?'المدونة':'Blog';document.getElementById('crumbNow').textContent=lang==='ar'?a.title_ar:a.title_en;document.getElementById('relH').textContent=lang==='ar'?'📚 مقالات ذات صلة':'📚 Related articles';
 const rel=(window.TW4A_ARTICLES||[]).filter(x=>x.slug!==a.slug&&x.cat===a.cat).concat((window.TW4A_ARTICLES||[]).filter(x=>x.slug!==a.slug&&x.cat!==a.cat)).slice(0,3);
-document.getElementById('rel').innerHTML=rel.map(r=>`<div class="card"><img loading="lazy" src="${r.cover}" alt=""><div class="b"><b style="font-size:.92rem">${lang==='ar'?r.title_ar:r.title_en}</b><br><a href="article.html?id=${r.slug}">${lang==='ar'?'اقرأ ←':'Read →'}</a></div></div>`).join('');}
+document.getElementById('rel').innerHTML=rel.map(r=>`<div class="card"><div class="rel-cover"><img class="rel-cover-logo" src="images/logo.png" alt="" aria-hidden="true"><span class="rel-cover-site">TOPWEB4ALL</span><span class="rel-cover-title">${lang==='ar'?r.title_ar:r.title_en}</span><span class="rel-cover-domain">topweb4all.dev</span></div><div class="b"><b style="font-size:.92rem">${lang==='ar'?r.title_ar:r.title_en}</b><br><a href="article.html?id=${r.slug}">${lang==='ar'?'اقرأ ←':'Read →'}</a></div></div>`).join('');}
 
 
 document.documentElement.dataset.theme=localStorage.getItem('tw4a-theme')||'dark';TW4A_CHROME.init({active:'blog'});window.applyLang=function(l){lang=l;render();};render();

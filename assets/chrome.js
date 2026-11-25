@@ -83,7 +83,7 @@ window.TW4A_CHROME = (function () {
         '<a class="tw4a-skip" href="#tw4a-main">' + t(L, 'a11y.skip') + '</a>' +
         '<header class="tw4a-header" role="banner">' +
             '<div class="tw4a-left">' +
-                '<a class="tw4a-logo" href="Topweb4all.html"><div class="tw4a-logo-box">' + CUBE + '</div><div class="tw4a-logo-text">TOPWEB<span>4ALL</span></div></a>' +
+                '<a class="tw4a-logo" href="Topweb4all.html"><img src="images/logo.png" alt="TOPWEB4ALL" style="height:38px;width:auto;display:block;"><div class="tw4a-logo-text">TOPWEB<span>4ALL</span></div></a>' +
                 '<div class="tw4a-status"><span class="tw4a-dot"></span><span><span data-tw4a="status.city">' + t(L, 'status.city') + '</span> <strong id="tw4aClock">--:--</strong> • <span data-tw4a="status.ready">' + t(L, 'status.ready') + '</span></span></div>' +
             '</div>' +
             '<nav class="tw4a-nav" aria-label="' + t(L, 'a11y.mainNav') + '"><ul>' +
@@ -121,7 +121,7 @@ window.TW4A_CHROME = (function () {
         }).join('');
         return '' +
         '<footer class="tw4a-footer" role="contentinfo"><div class="tw4a-footer-grid">' +
-            '<div><a class="tw4a-logo" href="Topweb4all.html"><div class="tw4a-logo-box" style="width:32px;height:32px">' + CUBE + '</div><div class="tw4a-logo-text" style="font-size:1.15rem">TOPWEB<span>4ALL</span></div></a>' +
+            '<div><a class="tw4a-logo" href="Topweb4all.html"><img src="images/logo.png" alt="TOPWEB4ALL" style="height:30px;width:auto;display:block;"><div class="tw4a-logo-text" style="font-size:1.15rem">TOPWEB<span>4ALL</span></div></a>' +
             '<p class="desc" data-tw4a="ft.desc">' + t(L, 'ft.desc') + '</p>' +
             '<p class="copy"><span data-tw4a="ft.copy">' + t(L, 'ft.copy') + '</span> <a href="https://www.linkedin.com/in/omniabdm/" target="_blank" rel="noopener" style="color:inherit;font-weight:600">OmNia AhMed</a></p></div>' +
             '<div class="tw4a-cols"><div><h4 data-tw4a="ft.studio">' + t(L, 'ft.studio') + '</h4><div class="links">' +

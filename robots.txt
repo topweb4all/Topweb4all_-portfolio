@@ -1,0 +1,6 @@
+# TOPWEB4ALL — robots
+User-agent: *
+Allow: /
+Disallow: /admin.html
+
+Sitemap: https://topweb4all.dev/sitemap.xml
