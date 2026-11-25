@@ -12,13 +12,12 @@ Static Arabic/English studio website that runs on **GitHub Pages** with zero bac
 
 ![TOPWEB4ALL Screenshot](Screenshot.png)
 
-## Live Demo
+## Live Demo | المعاينة
 
-بعد النشر على GitHub Pages:
+- **GitHub Pages (Preview):** https://topweb4all.github.io/Topweb4all_-portfolio/
+- **Production (WordPress):** https://topweb4all.dev/
 
-`https://USERNAME.github.io/REPO/Topweb4all.html`
-
-> ملاحظة: الصفحة الرئيسية حاليا باسم `Topweb4all.html`، وملف `index.html` نسخة مطابقة منها ليعمل الموقع مباشرة على `https://USERNAME.github.io/REPO/`.
+> ملاحظة: الصفحة الرئيسية متاحة كـ `index.html` (الدخول الافتراضي) و`Topweb4all.html` (نسخة مطابقة).
 
 ## Features | المميزات
 
@@ -91,7 +90,7 @@ python3 -m http.server 8080
 
 1. ارفع كل الملفات إلى المستودع (`git push`).
 2. Settings → Pages → Source: **Deploy from a branch** → Branch: `main` → Folder: `/ (root)`.
-3. الموقع يعمل على `https://USERNAME.github.io/REPO/`.
+3. الموقع يعمل على `https://topweb4all.github.io/Topweb4all_-portfolio/`.
 
 ### مهم قبل النشر: رابط الموقع (canonical)
 
