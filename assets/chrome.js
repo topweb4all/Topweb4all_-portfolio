@@ -189,6 +189,8 @@ window.TW4A_CHROME = (function () {
             // ---- mobile drawer (a11y: aria-expanded, aria-hidden, Esc, focus restore) ----
             var bg = document.getElementById('tw4aBurger');
             var dr = document.getElementById('tw4aDrawer');
+            var bd = document.getElementById('tw4aBackdrop');
+            if (!bd) { bd = document.createElement('div'); bd.id = 'tw4aBackdrop'; bd.className = 'tw4a-backdrop'; document.body.appendChild(bd); }
             var lastFocus = null;
             function setDrawerLinks(open) {
                 if (!dr) return;
@@ -203,6 +205,8 @@ window.TW4A_CHROME = (function () {
                 dr.setAttribute('aria-hidden', String(!open));
                 setDrawerLinks(open);
                 if (bg) bg.setAttribute('aria-expanded', String(open));
+                if (bd) bd.classList.toggle('open', open);
+                document.body.style.overflow = open ? 'hidden' : '';
                 if (open) {
                     lastFocus = document.activeElement;
                     var first = dr.querySelector('a');
@@ -214,6 +218,7 @@ window.TW4A_CHROME = (function () {
             if (bg) bg.addEventListener('click', function () {
                 setDrawer(!(dr && dr.classList.contains('open')));
             });
+            if (bd) bd.addEventListener('click', function () { setDrawer(false); });
             if (dr) {
                 dr.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setDrawer(false); }); });
                 dr.addEventListener('keydown', function (e) {

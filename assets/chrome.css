@@ -43,7 +43,7 @@ a:visited { color: var(--c-teal); }
 }
 .tw4a-logo-text { font-size: 1.35rem; font-weight: 700; }
 .tw4a-logo-text span { color: var(--c-teal); }
-.tw4a-status { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--c-mut); border-left: 1px solid var(--c-border); padding-left: 18px; white-space: nowrap; }
+.tw4a-status { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; color: var(--c-mut); border-left: 1px solid var(--c-border); padding-left: 18px; white-space: nowrap; opacity: 0.85; }
 .tw4a-dot { width: 8px; height: 8px; background: #38EF7D; border-radius: 50%; box-shadow: 0 0 8px #38EF7D; animation: tw4a-pulse 2s infinite; flex: none; }
 @keyframes tw4a-pulse { 0% { opacity: 0.3; } 50% { opacity: 1; } 100% { opacity: 0.3; } }
 
@@ -118,16 +118,32 @@ nav.tw4a-nav a.tw4a-link:hover, nav.tw4a-nav a.tw4a-link.active { color: var(--c
 [dir="rtl"] .tw4a-drawer { right: auto; left: -100%; border-left: none; border-right: 1px solid var(--c-border); }
 [dir="rtl"] .tw4a-drawer.open { right: auto; left: 0; }
 
+/* ---------- mobile backdrop ---------- */
+.tw4a-backdrop {
+    position: fixed; inset: 0; z-index: 998;
+    background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(3px);
+    opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.tw4a-backdrop.open { opacity: 1; visibility: visible; }
+@media (min-width: 1101px) { .tw4a-backdrop { display: none; } }
+
 /* ---------- responsive ---------- */
 @media (max-width: 1100px) {
     nav.tw4a-nav ul { display: none; }
-    .tw4a-burger { display: flex; }
+    .tw4a-burger { display: flex; width: 42px; height: 42px; }
     .tw4a-status { display: none; }
     .tw4a-btn { display: none; }
+    .tw4a-logo img { height: 30px; }
+    .tw4a-logo-text { font-size: 1.05rem; }
+    .tw4a-left { gap: 14px; }
+    .tw4a-drawer { top: 58px; height: calc(100vh - 58px); }
 }
 @media (max-width: 640px) {
-    .tw4a-header { padding: 0.7rem 4%; }
-    .tw4a-logo-text { font-size: 1.1rem; }
+    .tw4a-header { padding: 0.6rem 4%; }
+    .tw4a-logo img { height: 26px; }
+    .tw4a-logo-text { font-size: 0.95rem; }
+    .tw4a-icon { width: 34px; height: 34px; }
+    .tw4a-burger { width: 38px; height: 38px; }
 }
 
 /* ---------- Accessibility (a11y) ---------- */

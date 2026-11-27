@@ -1120,7 +1120,12 @@
 
         @media (max-width: 1024px) {
             nav ul.main-nav { display: none; }
-            .mobile-toggle-btn { display: flex; }
+            .mobile-toggle-btn { display: flex !important; flex: none; }
+            .nav-right .btn { display: none; }
+            .nav-right { gap: .6rem; }
+            .nav-right { flex-wrap: nowrap; }
+            /* hide time / status clutter in phone & tablet header */
+            .studio-status { display: none; }
             .hero { grid-template-columns: 1fr; text-align: center; }
             .hero p { margin: 0 auto 2rem; }
             .hero-actions { justify-content: center; }
@@ -2049,15 +2054,15 @@
                 <form id="contactForm">
                     <div class="form-row">
                         <label data-i18n="ct.name">Your Name</label>
-                        <input type="text" id="cfName" name="name" class="form-input" data-i18n-ph="ct.phName" placeholder="e.g. Michael Schmidt" required>
+                        <input type="text" class="form-input" data-i18n-ph="ct.phName" placeholder="e.g. Michael Schmidt" required>
                     </div>
                     <div class="form-row">
                         <label data-i18n="ct.email">Your Email</label>
-                        <input type="email" id="cfEmail" name="email" class="form-input" data-i18n-ph="ct.phEmail" placeholder="michael@example.com" required>
+                        <input type="email" class="form-input" data-i18n-ph="ct.phEmail" placeholder="michael@example.com" required>
                     </div>
                     <div class="form-row">
                         <label data-i18n="ct.svc">Service Needed</label>
-                        <select id="cfService" name="service" class="form-input" required>
+                        <select class="form-input" required>
                             <option value="" data-i18n="ct.opt0">Select an option...</option>
                             <option value="brand" data-i18n="ct.opt1">Zero-to-One Brand Creation (From Scratch)</option>
                             <option value="web" data-i18n="ct.opt2">Custom Web Engineering & UI</option>
@@ -2069,7 +2074,7 @@
                     </div>
                     <div class="form-row">
                         <label data-i18n="ct.det">Project Details</label>
-                        <textarea id="cfMessage" name="message" class="form-input" rows="4" data-i18n-ph="ct.phMsg" placeholder="Briefly outline your goals or timeline..."></textarea>
+                        <textarea class="form-input" rows="4" data-i18n-ph="ct.phMsg" placeholder="Briefly outline your goals or timeline..."></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 10px;">
                         <span data-i18n="ct.send">Send Inquiry</span> <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M3.4 20.4 21 12 3.4 3.6l2.6 7 7 1.4-7 1.4-2.6 7z"/></svg>
@@ -2134,8 +2139,6 @@
     <!-- Content system: edit data/articles.js + data/projects.js to add content -->
     <script src="data/articles.js"></script>
     <script src="data/projects.js"></script>
-    <!-- TW4A config: set your Google Apps Script endpoint here to forward form submissions to a Google Sheet -->
-    <script>window.TW4A_SHEET_ENDPOINT = window.TW4A_SHEET_ENDPOINT || 'https://script.google.com/macros/s/AKfycby2edgCpdmV9dBUuJITLyEZMLVtW930JVk9c-aX1S2KMl--PUZGXR0pH2Fs4e6JppO3/exec';</script>
     <!-- Interactive JavaScript Engine -->
     <script>
         // 0. i18n — Arabic / English dictionary + RTL switch
@@ -3348,33 +3351,6 @@
         }
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const name = (document.getElementById('cfName').value || '').trim();
-            const email = (document.getElementById('cfEmail').value || '').trim();
-            const service = document.getElementById('cfService').value || '';
-            const message = (document.getElementById('cfMessage').value || '').trim();
-            // Save message to local dashboard storage
-            try {
-                const list = JSON.parse(localStorage.getItem('tw4a-messages') || '[]');
-                list.unshift({
-                    id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
-                    name, email, service, message,
-                    date: new Date().toISOString(),
-                    read: false
-                });
-                localStorage.setItem('tw4a-messages', JSON.stringify(list));
-            } catch (err) { console.warn('save failed', err); }
-            // Optional: forward to a Google Apps Script / Sheet endpoint
-            const endpoint = (window.TW4A_SHEET_ENDPOINT || '').trim();
-            if (endpoint) {
-                try {
-                    fetch(endpoint, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ name, email, service, message, date: new Date().toISOString() })
-                    });
-                } catch (err) { console.warn('sheet forward failed', err); }
-            }
             toast.classList.add('show');
             contactForm.reset();
             setTimeout(() => toast.classList.remove('show'), 4000);
